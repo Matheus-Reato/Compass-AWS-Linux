@@ -1,0 +1,30 @@
+#!/bin/bash
+
+servico="Apache Server"
+dataPasta=$(date "+%d-%m-%Y")
+hora=$(date "+%H:%M:%S")
+
+date=$(date "+%d-%m-%Y %H:%M:%S")
+
+status=$(curl -Is ip | head -n 1)
+
+if [ "$status" ] ; then
+  mensagem="O servico está online"
+else
+  mensagem="O servico está offline"
+fi
+
+if [[ -d /home/ec2-user/efs-mount-point/matheusReato/$dataPasta/ ]] ; then
+  echo "Pasta já existe"
+else 
+  mkdir /home/ec2-user/efs-mount-point/matheusReato/$dataPasta/
+fi
+
+mkdir /home/ec2-user/efs-mount-point/matheusReato/$dataPasta/$hora/
+
+touch /home/ec2-user/efs-mount-point/matheusReato/$dataPasta/$hora/statusApache.txt
+
+echo $date > /home/ec2-user/efs-mount-point/matheusReato/$dataPasta/$hora/statusApache.txt
+echo $servico >> /home/ec2-user/efs-mount-point/matheusReato/$dataPasta/$hora/statusApache.txt
+echo $status >> /home/ec2-user/efs-mount-point/matheusReato/$dataPasta/$hora/statusApache.txt
+echo $mensagem >> /home/ec2-user/efs-mount-point/matheusReato/$dataPasta/$hora/statusApache.txt
