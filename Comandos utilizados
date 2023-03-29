@@ -1,3 +1,28 @@
+IMPORTANDO CHAVE SSH DO LINUX PARA AWS
+
+ssh-keygen -t rsa -b 2048
+
+dê enter até ele terminar de criar a chave
+
+cd /.ssh
+
+cat id_rsa.pub
+
+copiar o texto mostrado na tela
+
+pelo navegador entrar na AWS em EC2
+
+No lado esquerdo da tela em Rede e Segurança, clicar em pares de chaves
+
+Clicar em Ações e em seguida em Importar par de chaves
+
+Atribuir um nome para a chave 
+
+Na caixa de texto, colar o texto mostrado na tela quando foi utilizado o comando "cat id_rsa.pub"
+
+Importar o par de chaves
+
+------------------------------------------------------------------------------------------------------------
 INSTALANDO O APACHE DENTRO DA EC2
 
 ssh -i ChaveSSH ec2-user@ip
