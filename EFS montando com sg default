@@ -1,0 +1,11 @@
+Para resolver o problema em que o EFS só monta na instância EC2 que tiver o security group default:
+
+Entre no serviço de EFS no site da AWS
+Clique em Sistemas de Arquivos
+Clique no seu EFS criado
+Vá em configurações de rede
+Clique em Gerenciar
+Remova o security group default
+Escolha o security group da sua Instância EC2
+
+//Certas portas do security group precisam estar liberadas para o uso do EFS
