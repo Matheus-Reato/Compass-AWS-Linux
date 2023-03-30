@@ -2,6 +2,9 @@ Digite o seguinte comando:
 
 sudo mount -t nfs -o nfsvers=4.1,rsize=1048576,wsize=1048576,hard,timeo=600,retrans=2,noresvport [mount-target-DNS]:/  [~/efs-mount-point]
 
+cd [~/efs-mount-point]
+
+sudo chmod go+rw .
+
 //Trocar [mount-target-DNS] pelo nome de DNS na Amazon EFS criada 
 //Trocar [~/efs-mount-point] pelo caminho desejado para montar o EFS
-//Toda vez que a instância for parada, será necessário passar esse código novamente para montar o arquivo
