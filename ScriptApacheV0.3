@@ -1,0 +1,58 @@
+#!/bin/bash
+
+servico="Apache Server"
+dataPasta=$(date "+%d-%m-%Y")
+hora=$(date "+%H:%M:%S")
+
+date=$(date "+%d-%m-%Y %H:%M:%S")
+
+status=$(curl -ls ip | head -n 1) // trocar "ip" pelo elastic ip ou ip público da ec2
+
+if [ "$status" ] ; then
+  mensagemStatus="Online"
+  mensagemPersonalizada="O servico $servico está online"
+else
+  mensagemStatus="Offline"
+  mensagemPersonalizada="O servico $servico está offline"
+fi
+
+if [[ -d /home/ec2-user/efs-mount-point/matheusReato/$dataPasta/ ]] ; then
+  echo "Pasta já existe"
+else 
+  mkdir /home/ec2-user/efs-mount-point/matheusReato/$dataPasta/
+fi
+
+#Verifica se a pasta Online já existe na pasta que contem o dia de hoje
+if [[ -d /home/ec2-user/efs-mount-point/matheusReato/$dataPasta/Online ]] ; then
+  echo "Ok"
+else 
+  mkdir /home/ec2-user/efs-mount-point/matheusReato/$dataPasta/Online/
+fi
+
+#Verifica se a pasta Offline já existe na pasta que contem o dia de hoje
+if [[ -d /home/ec2-user/efs-mount-point/matheusReato/$dataPasta/Offline ]] ; then
+  echo "Ok"
+else 
+  mkdir /home/ec2-user/efs-mount-point/matheusReato/$dataPasta/Offline/
+fi
+
+#Se a mensagemStatus é Online, dentro do diretório Online cria um diretório com a hora atual e um arquivo txt dentro dele com os dados, caso contrário dentro do diretório Offline é criado um diretório com a hora atual e um arquivo txt dentro dele com os dados  
+if [ "$mensagemStatus" = "Online" ] ; then
+
+        mkdir /home/ec2-user/efs-mount-point/matheusReato/$dataPasta/Online/$hora/
+        touch /home/ec2-user/efs-mount-point/matheusReato/$dataPasta/Online/$hora/statusApache.txt
+
+        echo $date > /home/ec2-user/efs-mount-point/matheusReato/$dataPasta/Online/$hora/statusApache.txt
+        echo $servico >> /home/ec2-user/efs-mount-point/matheusReato/$dataPasta/Online/$hora/statusApache.txt
+        echo $mensagemStatus >> /home/ec2-user/efs-mount-point/matheusReato/$dataPasta/Online/$hora/statusApache.txt
+        echo $mensagemPersonalizada >> /home/ec2-user/efs-mount-point/matheusReato/$dataPasta/Online/$hora/statusApache.txt
+ else
+        mkdir /home/ec2-user/efs-mount-point/matheusReato/$dataPasta/Offline/$hora/
+        touch /home/ec2-user/efs-mount-point/matheusReato/$dataPasta/Offline/$hora/statusApache.txt
+
+        echo $date > /home/ec2-user/efs-mount-point/matheusReato/$dataPasta/Offline/$hora/statusApache.txt
+        echo $servico >> /home/ec2-user/efs-mount-point/matheusReato/$dataPasta/Offline/$hora/statusApache.txt
+        echo $mensagemStatus >> /home/ec2-user/efs-mount-point/matheusReato/$dataPasta/Offline/$hora/statusApache.txt
+        echo $mensagemPersonalizada >> /home/ec2-user/efs-mount-point/matheusReato/$dataPasta/Offline/$hora/statusApache.txt
+fi
+ 
