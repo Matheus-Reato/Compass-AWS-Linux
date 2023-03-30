@@ -6,7 +6,7 @@ hora=$(date "+%H:%M:%S")
 
 date=$(date "+%d-%m-%Y %H:%M:%S")
 
-status=$(curl -ls ip | head -n 1) // trocar "ip" pelo elastic ip ou ip público da ec2
+status=$(curl -ls ip | head -n 1)   #trocar "ip" pelo elastic ip ou ip público da ec2
 
 if [ "$status" ] ; then
   mensagemStatus="Online"
