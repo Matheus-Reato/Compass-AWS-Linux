@@ -1,0 +1,13 @@
+crontab -e
+ou
+vim /etc/crontab
+
+//No final do arquivo escreva o seguinte comando:
+
+*/5 * * * * [caminho onde está o script] //Ex: /home/ec2-user/scriptApache.sh  (Obs: Esse comando irá fazer com que o script seja executado a cada 5 minutos)
+
+//Salve e saia do arquivo
+
+sudo systemctl restart crond.service
+ou
+sudo systemctl restart crond
