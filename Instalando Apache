@@ -1,0 +1,8 @@
+Dentro da instância EC2, digite os seguintes comandos:
+
+sudo yum -y install httpd
+
+sudo systemctl enable --now httpd.service
+
+sudo systemctl status httpd //Para verificar se o Apache já está funcionando
+
