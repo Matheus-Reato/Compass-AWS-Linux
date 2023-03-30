@@ -1,0 +1,7 @@
+cd /var/www
+
+vim index.html // https://github.com/Matheus-Reato/Compass-AWS-Linux/blob/main/index.html
+
+//Salve e saia do arquivo
+
+sudo mv index.html html
