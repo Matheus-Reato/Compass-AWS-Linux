@@ -31,6 +31,8 @@ Digite os seguintes comandos:
 
 ```
 cd /var/www
+```
+```
 vim index.html
 ```
 Escreva uma página de index usando html ou cole dentro do seu arquivo o seguinte html: https://github.com/Matheus-Reato/Compass-AWS-Linux/blob/main/index.html
@@ -68,9 +70,9 @@ Tente criar um diretório para teste
 mkdir teste
 ```
 ## Montando Amazon EFS automaticamente toda vez que reiniciar a instância EC2
-
+```
 vim /etc/fstab
-
+```
 Dentro do arquivo, vá até o final dele e digite o seguinte comando: 
 
 ```
