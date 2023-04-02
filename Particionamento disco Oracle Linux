@@ -1,0 +1,19 @@
+Troque o Storage Configuration de "Automatic" para "Custom"
+
+Clique em Done
+
+Troque de "LVM" para "Standard Partition"
+
+Clique no "+"
+
+Crie um mount point de swap com 5GB
+
+Crie um mount point de /boot com 5GB
+
+Mude o "Fyle System" para "Ext4"
+
+Aloque o resto do armazenamento ao mount point /
+
+Troque o "Device Type" para "LVM" e o "File System" para "Ext4"
+
+Clique em done e em "Accept changes"
