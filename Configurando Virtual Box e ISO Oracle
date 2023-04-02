@@ -14,7 +14,7 @@ Dê o nome da Virtual Box de Oracle Linux e clique em "Próximo"
 
 Defina a memória e quantos processadores você irá querer utilizar e clique em "Próximo"
 
-Defina o tamanho do disco e clique em "Próximo" novamente
+Defina o tamanho do disco e clique em "Próximo" novamente. Recomendo algo em torno de 80GB para não haver problemas de falta de espaço
 
 Clique em "Finalizar"
 
@@ -30,5 +30,5 @@ Em configurações de rede troque a placa de modo "NAT" para "Placa em modo Brid
 
 Depois disso, é possível iniciar a Virtual Machine para prosseguir com a instalação
 
-Instalação mais detalhada da VM em: 
+Instalação mais detalhada do Oracle Linux em: 
 https://github.com/Matheus-Reato/Compass-AWS-Linux/blob/main/Instala%C3%A7%C3%A3o%20Oracle%20Linux
