@@ -1,0 +1,27 @@
+Digite os seguintes comandos:
+
+ssh-keygen -t rsa -b 2048
+
+Dê enter até a chave ser criada
+
+cd .ssh
+
+cat id_rsa.pub
+
+Copiar o texto mostrado na tela
+
+Pelo navegador entrar na AWS em EC2
+
+No lado esquerdo da tela em Rede e Segurança, clicar em pares de chaves
+
+Clicar em Ações e em seguida em Importar par de chaves
+
+Atribuir um nome para a chave 
+
+Na caixa de texto, colar o texto mostrado na tela quando foi utilizado o comando "cat id_rsa.pub"
+
+Importar o par de chaves
+
+Dentro do Linux dar permissão para a chave SSH com o seguinte comando:
+
+chmod 400 id_rsa.pub
