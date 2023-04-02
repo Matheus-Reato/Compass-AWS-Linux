@@ -17,6 +17,14 @@ ssh -i /root/.ssh/id_rsa.pub ec2-user@19.44.265.95
 Os colchetes servem somente para separar o que é comando padrão e o que o usuário deve inserir de acordo com suas próprias informações!
 Não se deve permanecer os colchetes [] em nenhum dos comandos abaixo quando forem executados. 
 
+## Pré-requisitos
+ * Conta na AWS
+ * Distribuição Linux
+
+# Instalação do Oracle Linux 8.7
+
+
+
 ## Passo a passo
 Os comandos utilizados estarão descritos mais detalhadamente no decorrer desse arquivo e em arquivos separados para cada tópico
 
