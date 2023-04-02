@@ -195,7 +195,7 @@ sudo chmod +x [nome do script]
 ```
 
 ## Automatizando o script para executar a cada 5 minutos
-Digite os seguinte comando: 
+Digite o seguinte comando: 
 ```
 crontab -e
 ```
