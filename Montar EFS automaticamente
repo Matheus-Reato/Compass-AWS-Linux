@@ -4,4 +4,4 @@ dentro do arquivo colocar o seguinte comando
 
 [fs-XXXXXXXX].efs.[aws-region].amazonaws.com:/ [caminho onde será montado] nfs4 nfsvers=4.1,rsize=1048576,wsize=1048576,hard,timeo=600,retrans=2,noresvport,_netdev 0 0
 
-
+Nota: Retirar todos os colchetes quando for salvar o comando
