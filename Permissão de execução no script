@@ -1,0 +1,9 @@
+Estando no diretório em que o script se encontra, digite:
+
+chmod +x [nome do arquivo]
+
+Se não estiver no mesmo diretório em que o script se encontra, digite:
+
+chmod +x [caminho até o script]
+
+#Exemplo: chmod +x /home/matheus/script.sh
