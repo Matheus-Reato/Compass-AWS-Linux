@@ -1,0 +1,46 @@
+Inicie a Virtual Machine 
+
+Aperte a seta para cima até ela chegar no "Install Oracle Linux" e em seguida aperte Enter
+
+Escolha a linguagem que você quer usar durante a instalação e depois clique em "Continue". Recomendo a utilização do Inglês
+
+Clique no teclado e em seguida na opção "+"
+
+Escolha a linguagem Português(Brasil), caso ela não tenha sido selecionada ainda 
+
+Clique nela e com as setas para cima e para baixo disponíveis na tela, suba até ela ficar em primeiro lugar
+
+Depois clique em "Done"
+
+Em "Time & Date" escolha a posição do mundo em que você se encontra no momento
+
+Depois clique em "Done"
+
+Configure uma senha para o usuário Root
+
+Caso queira, é possível também criar um usuário para uso sem ser o Administrador em "User Creation"
+
+Clique em "Software Selection" 
+
+Se quiser utilizar o Linux com interface Gráfica, selecione "Server with GUI"
+
+Se quiser somente o terminal, selecione a opção Server
+
+Em Additional Software, selecione Legacy Unix Compatibility
+
+Clique em Done
+
+Clique em Network & Host Name
+
+Habilite a internet e clique em "Configure" 
+
+Em "General", habilite a primera opção
+
+Salve e saia
+
+O particionamento do disco está detalhado em: 
+
+
+
+
+
