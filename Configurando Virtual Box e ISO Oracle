@@ -28,7 +28,7 @@ Adicione a ISO que foi baixada anteriormente no site da Oracle
 
 Em configurações de rede troque a placa de modo "NAT" para "Placa em modo Bridge"
 
-Depois disso, é possível iniciar a Virutal Machine para prosseguir com a instalação
+Depois disso, é possível iniciar a Virtual Machine para prosseguir com a instalação
 
-
-
+Instalação mais detalhada da VM em: 
+https://github.com/Matheus-Reato/Compass-AWS-Linux/blob/main/Instala%C3%A7%C3%A3o%20Oracle%20Linux
