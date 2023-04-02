@@ -40,7 +40,12 @@ Salve e saia
 
 O particionamento do disco está detalhado em: 
 
+https://github.com/Matheus-Reato/Compass-AWS-Linux/blob/main/Particionamento%20disco%20Oracle%20Linux
 
+Clique em "Begin Installation"
 
+Espere até a instalação ser concluída 
 
+Clique em "Reboot System"
 
+Espere o Linux reiniciar e ele estará pronto para o uso
