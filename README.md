@@ -17,7 +17,40 @@ ssh -i /root/.ssh/id_rsa.pub ec2-user@19.44.265.95
 Os colchetes servem somente para separar o que é comando padrão e o que o usuário deve inserir de acordo com suas próprias informações!
 Não se deve permanecer os colchetes [] em nenhum dos comandos abaixo quando forem executados. 
 
-## Criando chave SSH
+## Passo a passo
+Os comandos utilizados estarão descritos mais detalhadamente no decorrer desse arquivo e em arquivos separados para cada tópico
+
+ * Primeiramente criei uma chave SSH pública no terminal do Linux e importei ela para dentro da AWS
+ 
+ * Criei uma instância ec2 com Security Group abrindo as portas 22/TCP, 111/TCP/UDP, 2049/TCP/UDP, 80/TCP, 443/TCP e elastic IP conforme detalhado na atividade
+ 
+ * Entrei dentro da instância EC2
+ 
+ * Instalei o Apache, porém quando usava o comando curl -iv localhost ele retornva um erro 403 FORBIDDEN
+ 
+ * Para resolver isso foi necessário criar um arquivo .html e movê-lo para dentro da pasta /var/www/html
+ 
+ * Dentro da console AWS, entrei no serviço de EFS e criei um sistema de arquivos
+ 
+ * Mudei o Security Group do EFS criado para o mesmo que a instância EC2 está utilizando. Para mudar essa configuração, basta entrar em detalhes de rede da EFS
+ 
+ * Pelo terminal do Linux, montei o Amazon EFS dentro da instância EC2. A primeira vez foi necessário montar manualmente, mas depois foi possível montá-lo automaticamente colocando um comando dentro do /etc/fstab
+ 
+ * Usei o comando df -h para verificar se o arquivo tinha sido montado com sucesso.
+ 
+ * Precisei dar permissão ao EFS para poder criar um diretório dentro dele
+ 
+ * Criei o diretório matheusReato
+ 
+ * Começei a criação do script para validar se o Apache estava online e para mandar o resultado para dentro do meu diretório no EFS
+ 
+ * Dei permissão de execução para o script
+ 
+ * Automatizei o script para ser executado a cada 5 minutos utilizando o crontab
+ 
+
+
+## Criando chave SSH e a importando para dentro da AWS
 
 Em um terminal Linux digite:
 ```
@@ -53,7 +86,7 @@ Novamente dentro do terminal do Linux dar permissão para a chave SSH com o segu
 chmod 400 id_rsa.pub
 ```
 
-## Entrando numa instância EC2
+## Criando um instância EC2 e entrando dentro dela
 
 Pelo navegar, entre na AWS no serviço de EC2
 
@@ -153,6 +186,34 @@ IMPORTANTE: Escrever exatamente dessa forma, trocando apenas as informações en
 
 Para informações mais detalhadas, é possível encontrar na documentação da própria AWS: https://docs.aws.amazon.com/efs/latest/ug/nfs-automount-efs.html
 
+## Dando permissão de execução ao script
+
+Digite o seguinte comando estando na mesma pasta que o script:
+
+```
+sudo chmod +x [nome do script]
+```
+
+## Automatizando o script para executar a cada 5 minutos
+Digite os seguinte comando: 
+```
+crontab -e
+```
+
+Dentro do arquivo digite:
+```
+*/5 * * * * [caminho onde está o script] 
+```
+Salve e saia do arquivo
+
+Reinicie o serviço
+```
+sudo systemctl restart crond.service
+```
+ou
+```
+sudo systemctl restart crond
+```
 
 # Autor
 
