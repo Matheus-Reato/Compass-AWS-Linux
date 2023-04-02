@@ -1,0 +1,34 @@
+Caso você esteja usando o sistema operacional Windows
+
+Primeiro será necessário a instalação da Virtual Box para emular um sistema operacional Linux
+
+É possível fazer o download dela pelo seguinte link: https://www.virtualbox.org/
+
+Depois de instalado a Virtual Box, entre no site da oracle e baixe uma das versões do Oracle Linux
+
+Disponível em: https://yum.oracle.com/oracle-linux-isos.html
+
+Com isso em mãos, entre na Virtual Box e clique no botão "Novo"
+
+Dê o nome da Virtual Box de Oracle Linux e clique em "Próximo"
+
+Defina a memória e quantos processadores você irá querer utilizar e clique em "Próximo"
+
+Defina o tamanho do disco e clique em "Próximo" novamente
+
+Clique em "Finalizar"
+
+Vá em configurações na aba de armazenamento
+
+Em Controladora: IDE clique no "vazio" e no canto direito da tela clique no ícone de CD
+
+Clique em "Escolher uma imagem de disco"
+
+Adicione a ISO que foi baixada anteriormente no site da Oracle
+
+Em configurações de rede troque a placa de modo "NAT" para "Placa em modo Bridge"
+
+Depois disso, é possível iniciar a Virutal Machine para prosseguir com a instalação
+
+
+
