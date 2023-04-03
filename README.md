@@ -51,7 +51,7 @@ Os comandos utilizados estarão descritos mais detalhadamente no decorrer desse 
  
  * Automatizei o script para ser executado a cada 5 minutos utilizando o crontab
  
- * Fiz a configuração de segurança usando SSL
+ * Fiz a configuração de segurança para porta 443 usando SSL
 
 ## Criando chave SSH e a importando para dentro da AWS
 
@@ -256,7 +256,7 @@ ou
 sudo systemctl restart crond
 ```
 
-## Certificação de segurança
+## Configuração de segurança para porta 443
 
 Digite os seguintes comandos:
 ```
