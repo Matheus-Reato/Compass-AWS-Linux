@@ -268,4 +268,4 @@ cd /etc/pki/tls/certs sudo ./make-dummy-cert localhost.crt
 ```
 sudo systemctl restart httpd
 ```
-
+Documentação mais detalhada disponível em: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/SSL-on-amazon-linux-2.html
