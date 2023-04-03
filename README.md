@@ -1,8 +1,5 @@
 # Compass-AWS-Linux
-
-# Sobre o projeto
-
-A aplicação consiste na criação e configuração de requisitos especificados na atividade de Linux Univesp e URI
+Projeto Compass AWS + Linux
 
 ## Nota
 
@@ -20,10 +17,11 @@ Não se deve permanecer os colchetes [] em nenhum dos comandos abaixo quando for
 ## Pré-requisitos
  * Conta na AWS
  * Distribuição Linux
-
+ * AWS CLI configurado
+ 
 # Instalação do Oracle Linux
 
-Caso seja necessário a instalação de um Distribuição Linux, segue um breve tutorial de como instalar o Oracle Linux
+Caso seja necessário a instalação de um Distribuição Linux, segue um breve tutorial de como instalar o Oracle Linux:
 
 https://github.com/Matheus-Reato/Compass-AWS-Linux/blob/main/Configurando%20Virtual%20Box%20e%20ISO%20Oracle
 
@@ -67,30 +65,30 @@ Em um terminal Linux digite:
 ```
 ssh-keygen -t rsa -b 2048
 ```
-Dê enter até a chave ser criada
+Dê enter até a chave ser criada.
 
-Entre no diretório da chave
+Entre no diretório da chave digitando:
 ```
 cd .ssh
 ```
 
-Mostre na tela o código da chave pública
+Mostre na tela o código da chave pública.
 ```
 cat id_rsa.pub
 ```
-Copie o texto mostrado na tela
+Copie o texto mostrado na tela.
 
-Pelo navegador entrar na AWS no serviço de EC2
+Pelo navegador entrar na AWS no serviço de EC2.
 
-No lado esquerdo da tela em "Rede e Segurança", clicar em "Pares de chaves"
+No lado esquerdo da tela em "Rede e Segurança", clicar em "Pares de chaves".
 
-Clicar em "Ações" e em seguida em "Importar par de chaves"
+Clicar em "Ações" e em seguida em "Importar par de chaves".
 
-Atribuir um nome para a chave 
+Atribuir um nome para a chave.
 
-Na caixa de texto, colar o código mostrado na tela quando foi utilizado o comando "cat id_rsa.pub"
+Na caixa de texto, colar o código mostrado na tela quando foi utilizado o comando "cat id_rsa.pub".
 
-Importar o par de chaves
+Importar o par de chaves.
 
 Novamente dentro do terminal do Linux dar permissão para a chave SSH com o seguinte comando:
 ```
@@ -99,13 +97,13 @@ chmod 400 id_rsa.pub
 
 ## Criando um instância EC2 e entrando dentro dela
 
-Pelo navegar, entre na AWS no serviço de EC2
+Pelo navegador, entre na AWS no serviço de EC2.
 
-Clique em "Executar instância"
+Clique em "Executar instância".
 
-Crie a instância conforme sua necessidade
+Crie a instância conforme sua necessidade e atribua a Chave SSH criada anteriormente.
 
-Depois de criada a instância, copie o endereço IPv4 público, disponível nos detalhes da instância
+Depois de criada a instância, copie o endereço IPv4 público, disponível nos detalhes da instância.
 
 Dentro do terminal do linux digite o seguinte comando:
 
@@ -115,8 +113,29 @@ ssh -i [caminho em que a chave SSH se encontra] ec2-user@[endereço IPv4 públic
 
 Caso apareça alguma mensagem pedindo para digitar yes/no
 
-Digite yes
+Digite yes.
 
+## Criando Amazon EFS no console
+
+Pelo navegador, entre na AWS no serviço de EFS.
+
+Clique em "Sistemas de arquivos" no lado esquerdo da tela.
+
+Clique em "Criar Sistema de arquivo".
+
+Se sentir necessidade, dê um nome ao seu sistema de arquivo.
+
+Escolha a qual VPC o sistema de arquivo será associado.
+
+Crie o sistema de arquivo.
+
+Clique nele e em visualizar detalhes.
+
+Vá até os detalhes de "Rede".
+
+Troque o Security Group do seu sistema de arquivo para o mesmo que está sendo utilizado na sua instância EC2.
+
+Nota: A porta de nfs deve estar aberta para que haja conexão entre EFS e EC2.
 
 ## Subindo um Apache dentro da instância EC2
 
@@ -126,7 +145,9 @@ Dentro da instância EC2 digite os seguintes comandos:
 sudo yum install httpd
 ```
 
-Espere o programa terminar de baixar
+Espere o programa terminar de baixar.
+
+Para startar o serviço digite:
 
 ```
 sudo systemctl enable --now httpd.service
@@ -151,35 +172,35 @@ vim index.html
 ```
 Escreva uma página de index usando html ou cole dentro do seu arquivo o seguinte html: https://github.com/Matheus-Reato/Compass-AWS-Linux/blob/main/index.html
 
-Salve e saia do arquivo
+Salve e saia do arquivo.
 
 Use o comando:
 ```
-mv index.html html
+sudo mv index.html html
 ```
-Tente usar os comando de curl novamente
+Tente usar os comando de curl novamente.
 
 ## Montando Amazon EFS manualmente
 
-Primeiramente crie um EFS dentro da console da AWS
+Primeiramente crie um EFS dentro da console da AWS.
 
 Dentro da instância EC2 digite os seguintes comandos:
 
 ```
-mkdir [~/caminho que o usuário deseja criar o diretório]
+mkdir [/caminho que o usuário deseja criar o diretório]
 ```
 ```
-sudo mount -t nfs -o nfsvers=4.1,rsize=1048576,wsize=1048576,hard,timeo=600,retrans=2,noresvport [nome de DNS do EFS]:/ [~/caminho do diretório que o usuário criou]
+sudo mount -t nfs -o nfsvers=4.1,rsize=1048576,wsize=1048576,hard,timeo=600,retrans=2,noresvport [nome de DNS do EFS]:/ [/caminho do diretório que o usuário criou]
 ```
 ![Demonstração](https://github.com/Matheus-Reato/assets/blob/main/dns_efs.png)
 ```
-cd [~/caminho do diretório que o usuário criou]
+cd [/caminho do diretório que o usuário criou]
 ```
 Para ter permissão de criar arquivos dentro do EFS montado use o seguinte comando:
 ```
 sudo chmod go + rw .
 ```
-Tente criar um diretório para teste
+Tente criar um diretório para teste:
 ```
 mkdir teste
 ```
@@ -190,12 +211,23 @@ vim /etc/fstab
 Dentro do arquivo, vá até o final dele e digite o seguinte comando: 
 
 ```
-[fs-XXXXXXXX].efs.[aws-region].amazonaws.com:/ [caminho onde será montado] nfs4 nfsvers=4.1,rsize=1048576,wsize=1048576,hard,timeo=600,retrans=2,noresvport,_netdev 0 0
+[fs-XXXXXXXX].efs.[aws-region].amazonaws.com:/ [/caminho onde será montado] nfs4 nfsvers=4.1,rsize=1048576,wsize=1048576,hard,timeo=600,retrans=2,noresvport,_netdev 0 0
 ```
 
 IMPORTANTE: Escrever exatamente dessa forma, trocando apenas as informações entre colchetes pela suas. Caso algo esteja escrito errado é possível que você não consiga mais entrar na sua instância EC2, sendo necessário a criação de uma nova.
 
 Para informações mais detalhadas, é possível encontrar na documentação da própria AWS: https://docs.aws.amazon.com/efs/latest/ug/nfs-automount-efs.html
+
+## Script utilizado para verificação do Apache
+
+Digite o comando:
+```
+vim [nome do script]
+```
+Dentro do arquivo, cole o código disponível em:
+https://github.com/Matheus-Reato/Compass-AWS-Linux/blob/main/ScriptApacheV0.4
+
+Salve e saida do arquivo.
 
 ## Dando permissão de execução ao script
 
@@ -213,11 +245,11 @@ crontab -e
 
 Dentro do arquivo digite:
 ```
-*/5 * * * * [caminho onde está o script] 
+*/5 * * * * [/caminho onde está o script] 
 ```
-Salve e saia do arquivo
+Salve e saia do arquivo.
 
-Reinicie o serviço
+Reinicie o serviço com o seguinte comando:
 ```
 sudo systemctl restart crond.service
 ```
@@ -225,10 +257,4 @@ ou
 ```
 sudo systemctl restart crond
 ```
-
-# Autor
-
-Matheus Gotardo Reato
-
-
 
