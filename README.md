@@ -51,7 +51,7 @@ Os comandos utilizados estarão descritos mais detalhadamente no decorrer desse 
  
  * Automatizei o script para ser executado a cada 5 minutos utilizando o crontab
  
-
+ * Fiz a configuração de segurança usando SSL
 
 ## Criando chave SSH e a importando para dentro da AWS
 
@@ -254,5 +254,18 @@ sudo systemctl restart crond.service
 ou
 ```
 sudo systemctl restart crond
+```
+
+## Certificação de segurança
+
+Digite os seguintes comandos:
+```
+sudo yum install -y mod_ssl
+```
+```
+cd /etc/pki/tls/certs sudo ./make-dummy-cert localhost.crt
+```
+```
+sudo systemctl restart httpd
 ```
 
