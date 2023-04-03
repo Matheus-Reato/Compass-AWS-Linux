@@ -1,4 +1,4 @@
-Digite os seguintes comandos:
+Em um terminal Linux digite os seguintes comandos:
 
 ssh-keygen -t rsa -b 2048
 
