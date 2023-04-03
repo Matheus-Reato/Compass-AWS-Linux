@@ -1,0 +1,10 @@
+Digite os seguintes comandos:
+```
+sudo yum install -y mod_ssl
+```
+```
+cd /etc/pki/tls/certs sudo ./make-dummy-cert localhost.crt
+```
+```
+sudo systemctl restart httpd
+```
