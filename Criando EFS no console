@@ -1,0 +1,19 @@
+Pelo navegador, entre na AWS no serviço de EFS.
+
+Clique em "Sistemas de arquivos" no lado esquerdo da tela.
+
+Clique em "Criar Sistema de arquivo".
+
+Se sentir necessidade, dê um nome ao seu sistema de arquivo.
+
+Escolha a qual VPC o sistema de arquivo será associado.
+
+Crie o sistema de arquivo.
+
+Clique nele e em visualizar detalhes.
+
+Vá até os detalhes de "Rede".
+
+Troque o Security Group do seu sistema de arquivo para o mesmo que está sendo utilizado na sua instância EC2.
+
+Nota: A porta de nfs deve estar aberta para que haja conexão entre EFS e EC2.
