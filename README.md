@@ -19,13 +19,6 @@ Não se deve permanecer os colchetes [] em nenhum dos comandos abaixo quando for
  * Conta na AWS
  * Distribuição Linux
  * AWS CLI configurado
- 
-## Instalação do Oracle Linux
-
-Caso seja necessário a instalação de um Distribuição Linux, segue um breve tutorial de como instalar o Oracle Linux:
-
-https://github.com/Matheus-Reato/Compass-AWS-Linux/blob/main/Configurando%20Virtual%20Box%20e%20ISO%20Oracle
-
 
 ## Passo a passo
 Os comandos utilizados estarão descritos mais detalhadamente no decorrer desse arquivo e em arquivos separados para cada tópico
