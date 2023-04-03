@@ -3,7 +3,8 @@ Projeto Compass AWS + Linux
 
 ## Nota
 
-Alguns comandos escritos terão de ser trocados por algo pessoal da sua instância/EFS/caminho que o arquivo foi criado, eles estarão entre colchetes []
+Alguns comandos escritos terão de ser trocados por algo pessoal da sua instância/EFS/caminho que o arquivo foi criado, eles estarão entre colchetes [].
+
 Para que os comando funcionem corretamente troque os colchetes seguindo o exemplo:
 ```
 ssh -i [caminho em que a chave SSH se encontra] ec2-user@[endereço IPv4 público]
@@ -19,7 +20,7 @@ Não se deve permanecer os colchetes [] em nenhum dos comandos abaixo quando for
  * Distribuição Linux
  * AWS CLI configurado
  
-# Instalação do Oracle Linux
+## Instalação do Oracle Linux
 
 Caso seja necessário a instalação de um Distribuição Linux, segue um breve tutorial de como instalar o Oracle Linux:
 
