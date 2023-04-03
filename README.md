@@ -95,7 +95,7 @@ Novamente dentro do terminal do Linux dar permissão para a chave SSH com o segu
 chmod 400 id_rsa.pub
 ```
 
-## Criando um instância EC2 e entrando dentro dela
+## Criando uma instância EC2 e entrando dentro dela
 
 Pelo navegador, entre na AWS no serviço de EC2.
 
@@ -216,6 +216,8 @@ Dentro do arquivo, vá até o final dele e digite o seguinte comando:
 
 IMPORTANTE: Escrever exatamente dessa forma, trocando apenas as informações entre colchetes pela suas. Caso algo esteja escrito errado é possível que você não consiga mais entrar na sua instância EC2, sendo necessário a criação de uma nova.
 
+Quando o comando for executado, não deve permanecer nenhum colchete [] na linha. Eles servem somente para separar código padrão do que o usuário deve inserir.
+
 Para informações mais detalhadas, é possível encontrar na documentação da própria AWS: https://docs.aws.amazon.com/efs/latest/ug/nfs-automount-efs.html
 
 ## Script utilizado para verificação do Apache
@@ -226,6 +228,8 @@ vim [nome do script]
 ```
 Dentro do arquivo, cole o código disponível em:
 https://github.com/Matheus-Reato/Compass-AWS-Linux/blob/main/ScriptApacheV0.4
+
+NOTA: Os caminhos utilizados nesse script são os da minha instância EC2, para o script funcionar eles devem ser trocar pelos caminhos que você usou na criação dos mesmos. Nos comandos curl também devem ser alterados os "ip" pelo IPv4 público de sua instância
 
 Salve e saida do arquivo.
 
