@@ -1,0 +1,24 @@
+Caso não tenha importado uma chave SSH ainda siga os passos disponíveis em: https://github.com/Matheus-Reato/Compass-AWS-Linux/blob/main/Criando%20chave%20SSH
+
+Depois de importada a chave SSH, continue com os passos abaixo:
+
+Pelo navegador, entre na AWS no serviço de EC2.
+
+Clique em "Executar instância".
+
+Crie a instância conforme sua necessidade e atribua a Chave SSH criada anteriormente.
+
+Depois de criada a instância, copie o endereço IPv4 público, disponível nos detalhes da instância.
+
+Dentro do terminal do linux digite o seguinte comando:
+
+```
+ssh -i [caminho em que a chave SSH se encontra] ec2-user@[endereço IPv4 público]
+```
+
+Caso apareça alguma mensagem pedindo para digitar yes/no
+
+Digite yes.
+
+//Colchetes servem somente para separar o que é código padrão e o que o usuário deve escrever com suas informações pessoais
+//Quando o comando for executado não deve permanecer nenhum colchete
